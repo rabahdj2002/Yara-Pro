@@ -128,15 +128,15 @@ options:
 
 ## Examples
 
-To run exiftool on dir or file
+To run metadata on dir or file
 
-- **`python3 yara-pro.py --exiftool  Images/`** {dir/file}
+- **`python3 yara-pro.py --metadata  Images/`** {dir/file}
   
-To run exiftool on dir or file and export .csv report
+To run metadata on dir or file and export .csv report
 
-> Attention **exiftool report only support CSV**
+> Attention **metadata report only support CSV**
 
-- **`python3 yara-pro.py --exiftool  Images/ --csv report.csv`** {dir/file}
+- **`python3 yara-pro.py --metadata  Images/ --csv report.csv`** {dir/file}
 
 To run yara{custom rules}
 
