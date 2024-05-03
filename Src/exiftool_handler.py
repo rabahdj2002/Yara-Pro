@@ -65,9 +65,7 @@ def exifExtractAll(img_path):
 
 def exifConvertToCsv(img_path, csv_path='metadata.csv'):
     metadata  = exifExtractAll(img_path)
-    print(metadata)
     data_frame = pd.DataFrame.from_dict(metadata)
-    data_frame.dropna()
     data_frame.to_csv(csv_path)
 
 

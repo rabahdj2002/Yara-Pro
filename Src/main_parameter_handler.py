@@ -24,7 +24,7 @@ def parserHandler(args):
         if(args.csv):
 
             try:
-                exifConvertToCsv(args.metadata,args.csv)
+                exifConvertToCsv(args.metadata, args.csv)
             except Exception as e:
                 print(e)
                 print('Please check the file/s path')
