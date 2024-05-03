@@ -130,36 +130,36 @@ options:
 
 To run exiftool on dir or file
 
-- **`python3 exfy.py --exiftool  Images/`** {dir/file}
+- **`python3 yara-pro.py --exiftool  Images/`** {dir/file}
   
 To run exiftool on dir or file and export .csv report
 
 > Attention **exiftool report only support CSV**
 
-- **`python3 exfy.py --exiftool  Images/ --csv report.csv`** {dir/file}
+- **`python3 yara-pro.py --exiftool  Images/ --csv report.csv`** {dir/file}
 
 To run yara{custom rules}
 
-- **`python3 exfy.py --yara  --custom yarafile --file Images/file.jpg`** {file}
-- **`python3 exfy.py --yara  --custom yarafile --dir Images/`** {dir}
+- **`python3 yara-pro.py --yara  --custom yarafile --file Images/file.jpg`** {file}
+- **`python3 yara-pro.py --yara  --custom yarafile --dir Images/`** {dir}
 
 To run yara{yara scanner repository rules} .html report
 
 > Attention **yara-scanner report only support html**
 
-- **`python3 exfy.py --yara --repo --dir Images/ --report report.html`** {dir}
-- **`python3 exfy.py --yara --repo --dir Images/ --report report.html`** {file}
+- **`python3 yara-pro.py --yara --repo --dir Images/ --report report.html`** {dir}
+- **`python3 yara-pro.py --yara --repo --dir Images/ --report report.html`** {file}
 
 To run both yara{yara scanner repository rules} and exify and export .csv and .html report
 
 > Attention **For all flag the report file doesn't has extention. It will auto generate report with both .csv and .html**
 
-- **`python3 exfy.py --all --repo --dir Images/ --report report`** {directory}
-- **`python3 exfy.py --all --repo --file Images/test.jpg --report report`** {file}
+- **`python3 yara-pro.py --all --repo --dir Images/ --report report`** {directory}
+- **`python3 yara-pro.py --all --repo --file Images/test.jpg --report report`** {file}
 
 To run both yara{custom rules} and exify and export .csv and .html report
 
-- **`python3 exfy.py --all --custom custom_rules/r1.yar --dir Images/ --report report`**
+- **`python3 yara-pro.py --all --custom custom_rules/r1.yar --dir Images/ --report report`**
   
 ## Reference
 
