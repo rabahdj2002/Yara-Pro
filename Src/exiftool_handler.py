@@ -48,7 +48,7 @@ def exifExtractAll(img_path):
             print(e)
             #return 0
 
-    """it = 1
+    it = 1
     for item in metadata:
         print()
         print('------------------------------------------------------------')
@@ -57,7 +57,7 @@ def exifExtractAll(img_path):
         print()
         it +=1
         for subitem in item:
-            print(subitem,":    ",item[subitem])"""
+            print(subitem,":    ",item[subitem])
     
     return metadata
 
