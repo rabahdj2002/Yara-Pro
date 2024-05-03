@@ -10,7 +10,7 @@ The <a href=https://github.com/rabahdj2002/Yara-Pro>Yara Pro</a> is a simple com
 
 ## Content
 
-- [Yara Pro](#exfy-exiftool--yara)
+- [Yara Pro](#yara-pro)
   - [Discription](#discription)
   - [Content](#content)
   - [Features](#features)
@@ -44,48 +44,86 @@ The following table shows all the command line flags and their description :
 |  `--file`              |  file to be checked by yara                       |
 |  `--repo`              |  run yara on repository rules                     |
 |  `u`,`--update`        |  update yara-scanner repository rules             |
-|  `-e`,`--exiftool`     |  use exiftool only                                |
+|  `-m`,`--metadata`     |  extract metadata only                            |
 |  `-c` , `--csv`        |  export csv file                                  |
 |  `-r` , `--report`     |  generate report                                  |
-|  `-a` , `--all`        |  run both yara and exiftool                       |
+|  `-a` , `--all`        |  metadata extraction and file scaning             |
 *Table: Progam flags*
 
 You can run exfy -h to see all the avialble command
 
 ```shell
-python3 exfy.py -h
-    _______  __ ________  __   __________  ____  __ 
-   / ____/ |/ // ____/\ \/ /  /_  __/ __ \/ __ \/ / 
-  / __/  |   // /_     \  /    / / / / / / / / / /  
- / /___ /   |/ __/     / /    / / / /_/ / /_/ / /___
-/_____//_/|_/_/       /_/    /_/  \____/\____/_____/
-                                                    
+python3 yara-pro.py -h
 
-usage: EXFY [-h] [--yara] [--custom yara rules file] [--dir dir apth] [--file file path]
-            [--repo] [--update] [--exiftool full file/folder path]
-            [--csv csv file name and path] [--report report name file name and path] [--all]
 
-A tool that compine yara and exiftool
+
+
+██╗   ██╗ █████╗ ██████╗  █████╗       ██████╗ ██████╗  ██████╗
+╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗      ██╔══██╗██╔══██╗██╔═══██╗
+ ╚████╔╝ ███████║██████╔╝███████║█████╗██████╔╝██████╔╝██║   ██║
+  ╚██╔╝  ██╔══██║██╔══██╗██╔══██║╚════╝██╔═══╝ ██╔══██╗██║   ██║
+   ██║   ██║  ██║██║  ██║██║  ██║      ██║     ██║  ██║╚██████╔╝
+   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝     ╚═╝  ╚═╝ ╚═════╝
+
+
+
+
+                  ,▄▄▄▄▄▄▄▄▄▄,
+             ,▄███▀▀▀░░░░░░▀▀▀███▄
+           ▄██▀░▄▄████▀▀▀▀████▄▄░▀██▄
+         ▄█▀░▄██▀▀            ▀▀██▄⌠██▄
+       ▄██░▄██`     ██,▄▄,██     ▀██▄░██
+      ▄█▀░██▀       ▐██████        ▀██░██
+     ▐█▌░██   ▄     ███████▌    ,▄  `██▒██
+     ██░██'   ▀█▄▄▄██▒▒██▒▒██▄▄██▀   ▐█▌░█▌
+     █▌░██      ▀▀██▒╢╢██▒▒▒██▀▀      ██▒██
+     █▌░██   ,▄▄▄▄██╢╢╢██▒▒▒██▄▄▄▄    ██▒██
+     ██░██⌐       ██▒╢╢██▒▒▒█▌       ▐█▌░█▌
+     ▐█▌░██    ▄█████▒╢██▒▒█████▄    ██▒██
+      ▀█▄░██, ██`   ▀██████▀   ▀██ ▄██░██▀
+       ▀██░▀█▄         -`-       ▄██▀░██
+         ██▄░▀██▄,            ▄▄██▀░█████▄
+          `▀██▄░▀▀███▄▄▄▄▄████▀▀░▄████▒▒▒███▄▄▄
+              ▀███▄▄▄░░⌠⌠░░▄▄▄███▀   ▀██▒╣███▀▀██,
+                 `▀▀▀▀▀▀▀▀▀▀▀`         ▀███▀▒▒▒░▀██▄
+                                        ██░▒▒▒▒▒▒▒▀██▄
+                                         ▀██░▒▒▒▒▒▒▒░▀█▄
+                                           ▀██░▒▒▒▒▒▒▒░▀██
+                                             ▀██▄▒▒▒▒▒▒░██
+                                               ▀██▄░▒▄██▀
+                                                 `▀███▀
+                                                                                                                        
+
+   Developed by:
+   → Munirah Alsahli
+   → Shahad Alrabaie
+   → Maha Alshammari
+   → jihan Sultan
+
+usage: Yara-Pro [-h] [--yara] [--custom yara rules file] [--dir dir path] [--file file path] [--repo] [--update]
+                [--metadata full file/folder path] [--csv csv file name and path]
+                [--report report name file name and path] [--all]
+
+A tool that preforms metadata extraction and file scaning for malware.
 
 options:
   -h, --help            show this help message and exit
   --yara, -y            use only yara
   --custom yara rules file
                         run yara on costum rules
-  --dir dir apth        directory path
+  --dir dir path        directory path
   --file file path      file path
   --repo                yara scan with repository rules
   --update, -u          update yara rules
-  --exiftool full file/folder path, -e full file/folder path
-                        use exiftool only
+  --metadata full file/folder path, -m full file/folder path
+                        extract metadata only
   --csv csv file name and path, -c csv file name and path
                         export as csv
   --report report name file name and path, -r report name file name and path
                         export yara html report
-  --all, -a             Yara and exiftool
+  --all, -a             metadata extraction and file scaning
 
 -h or --help to see all commands
-
 ```
 
 ## Examples
