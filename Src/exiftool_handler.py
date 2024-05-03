@@ -14,6 +14,8 @@ def banner(txt):
 
 def exiftoolAll(img_path):
 
+    exiftool = exiftool.ExifTool(r'./exiftool.exe')
+
     metadata={}
 
     with exiftool.ExifToolHelper() as et:
