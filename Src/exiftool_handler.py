@@ -1,5 +1,6 @@
 import exiftool
 import pandas as pd
+import os
 from pyfiglet import Figlet
 
 
@@ -29,6 +30,9 @@ def exiftoolAll(img_path):
 
 
 def exifExtractAll(img_path):
+
+    #print(img_path)
+    #img_path = img_path if img_path[-1] in ['\\', '/'] else img_path+"\\" #os.path.abspath(img_path)
 
     metadata={}
 
