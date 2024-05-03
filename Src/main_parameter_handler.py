@@ -73,7 +73,8 @@ def parserHandler(args):
                 sys.exit(0)
 
         if(args.report):
-            report = report_generator.generate_report(match_result)
+            match = [match for match in match_result if match['match_list']]
+            report = report_generator.generate_report(match)
             common_functions.write_to_file(args.report, report)
             print('[+] Report saved to "{}"'.format(args.report))
         
@@ -96,11 +97,9 @@ def parserHandler(args):
                     match_result = yara_scanner.scan_directory(args.dir, 1)
 
                 if(args.report):
-                        #report = report_generator.generate_report(match_result)
-                        #common_functions.write_to_file(args.report+'.html', report)
-                        #ExportALLToCsv(metadata,{},args.report+'.csv')
-                        exifConvertToCsv(metadata, args.report+'.csv')
-                        ExportALLToHTML(metadata,match_result,args.report+'.html')
+                        match = [match for match in match_result if match['match_list']]
+                        ExportALLToCsv(metadata,match,args.report+'.csv')
+                        ExportALLToHTML(metadata,match,args.report+'.html')
                     
             except Exception as e:
                 print(e)
@@ -126,11 +125,9 @@ def parserHandler(args):
                         # generate reports
                         
                 if(args.report):
-                        #report = report_generator.generate_report(match_result)
-                        #common_functions.write_to_file(args.report+'.html', report)
-                        #ExportALLToCsv(metadata,{},args.report+'.csv')
-                        exifConvertToCsv(metadata, args.report+'.csv')
-                        ExportALLToHTML(metadata,match_result,args.report+'.html')
+                        match = [match for match in match_result if match['match_list']]
+                        ExportALLToCsv(metadata,match,args.report+'.csv')
+                        ExportALLToHTML(metadata,match,args.report+'.html')
 
 
 

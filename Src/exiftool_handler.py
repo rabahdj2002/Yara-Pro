@@ -37,15 +37,18 @@ def exifExtractAll(img_path):
     metadata={}
 
     with exiftool.ExifToolHelper() as et:
-
+        print(img_path)
         try:
-            metadata = et.get_metadata(img_path) 
+            #for file in img_path:
+            #    img = file['SourceFile']
+            metadata = et.get_metadata(img_path)
+            #print(metadata)
 
-        except:
-            print("Error file not found!!")
-            return 0
+        except Exception as e:
+            print(e)
+            #return 0
 
-    it = 1
+    """it = 1
     for item in metadata:
         print()
         print('------------------------------------------------------------')
@@ -54,15 +57,17 @@ def exifExtractAll(img_path):
         print()
         it +=1
         for subitem in item:
-            print(subitem,":    ",item[subitem])
+            print(subitem,":    ",item[subitem])"""
     
     return metadata
 
 
 
-def exifConvertToCsv(img_path,csv_path='metadata.csv'):
+def exifConvertToCsv(img_path, csv_path='metadata.csv'):
     metadata  = exifExtractAll(img_path)
+    print(metadata)
     data_frame = pd.DataFrame.from_dict(metadata)
+    data_frame.dropna()
     data_frame.to_csv(csv_path)
 
 

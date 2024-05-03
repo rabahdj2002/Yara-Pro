@@ -7,24 +7,25 @@ def ExportALLToCsv(metadata,dic,csv='all.csv'):
 
     try:
 
-        #if(len(dic)!=0):
-
-            #for i, d in enumerate(metadata):
-            #    d.update(dic[i])
+        if(len(dic)!=0):
+            #print(dic)
+            for d1, d2 in zip(metadata, dic):
+                d1.update(d2)
 
             data_frame = pd.DataFrame.from_dict(metadata)
 
             data_frame.to_csv(csv)
 
     except Exception as e:
+        print("Error at : ExportALLToCsv")
         print(e)
         print('Error pleace check yara-pro -h or yara-pro --help')
 
 
 def ExportALLToHTML(metadata, dic, html='all.html'):
     try:
-        for i, d in enumerate(metadata):
-            d.update(dic[i])
+        for d1, d2 in zip(metadata, dic):
+                d1.update(d2)
             
         data_frame = pd.DataFrame.from_dict(metadata)
 
@@ -36,5 +37,6 @@ def ExportALLToHTML(metadata, dic, html='all.html'):
             file.write(html_content)
 
     except Exception as e:
+        print("Error at : ExportALLToHTML")
         print(e)
         print('Error please check yara-pro -h or yara-pro --help')
