@@ -8,7 +8,6 @@ def ExportALLToCsv(metadata,dic,csv='all.csv'):
     try:
 
         if(len(dic)!=0):
-            #print(dic)
             for d1, d2 in zip(metadata, dic):
                 d1.update(d2)
 
