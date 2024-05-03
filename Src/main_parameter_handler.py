@@ -19,19 +19,21 @@ def parserHandler(args):
         return
        
     # parse exif tool
-    if(args.exiftool):
+    if(args.metadata):
 
         if(args.csv):
 
             try:
-                exifConvertToCsv(args.exiftool,args.csv)
-            except:
+                exifConvertToCsv(args.metadata,args.csv)
+            except Exception as e:
+                print(e)
                 print('Please check the file/s path')
 
         else:
             try:
-                exifExtractAll(args.exiftool)
-            except:
+                exifExtractAll(args.metadata)
+            except Exception as e:
+                print(e)
                 print('Please check the file/s path')
 
 
