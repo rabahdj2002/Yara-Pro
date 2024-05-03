@@ -96,8 +96,11 @@ def parserHandler(args):
                     match_result = yara_scanner.scan_directory(args.dir, 1)
 
                 if(args.report):
-                    ExportALLToCsv(metadata,match_result,args.report+'.csv')
-                    ExportALLToHTML(metadata,match_result,args.report+'.html')
+                        report = report_generator.generate_report(match_result)
+                        common_functions.write_to_file(args.report+'.html', report)
+                        ExportALLToCsv(metadata,{},args.report+'.csv')
+                        #exifConvertToCsv(metadata, args.report+'.csv')
+                        #ExportALLToHTML(metadata,match_result,args.report+'.html')
                     
             except Exception as e:
                 print(e)
@@ -123,8 +126,11 @@ def parserHandler(args):
                         # generate reports
                         
                 if(args.report):
-                        ExportALLToCsv(metadata,match_result,args.report+'.csv')
-                        ExportALLToHTML(metadata,match_result,args.report+'.html')
+                        report = report_generator.generate_report(match_result)
+                        common_functions.write_to_file(args.report+'.html', report)
+                        ExportALLToCsv(metadata,{},args.report+'.csv')
+                        #exifConvertToCsv(metadata, args.report+'.csv')
+                        #ExportALLToHTML(metadata,match_result,args.report+'.html')
 
 
 

@@ -7,10 +7,10 @@ def ExportALLToCsv(metadata,dic,csv='all.csv'):
 
     try:
 
-        if(len(dic)!=0):
+        #if(len(dic)!=0):
 
-            for i, d in enumerate(metadata):
-                d.update(dic[i])
+            #for i, d in enumerate(metadata):
+            #    d.update(dic[i])
 
             data_frame = pd.DataFrame.from_dict(metadata)
 
@@ -18,7 +18,7 @@ def ExportALLToCsv(metadata,dic,csv='all.csv'):
 
     except Exception as e:
         print(e)
-        print('Error pleace check exfy -h or exfy --help')
+        print('Error pleace check yara-pro -h or yara-pro --help')
 
 
 def ExportALLToHTML(metadata, dic, html='all.html'):
@@ -28,7 +28,7 @@ def ExportALLToHTML(metadata, dic, html='all.html'):
             
         data_frame = pd.DataFrame.from_dict(metadata)
 
-        header = "EXFY REPORT"
+        header = "Yara Pro REPORT"
   
         html_content = f'<h1>{header}</h1>\n' + data_frame.to_html(index=False)
 
@@ -37,4 +37,4 @@ def ExportALLToHTML(metadata, dic, html='all.html'):
 
     except Exception as e:
         print(e)
-        print('Error please check exfy -h or exfy --help')
+        print('Error please check yara-pro -h or yara-pro --help')
