@@ -4,6 +4,7 @@ import argparse
 
 class bcolors:
     HEADER = '\033[95m'
+    OHWHITE = '\033[97m'
     OKBLUE = '\033[94m'
     OKCYAN = '\033[96m'
     OKGREEN = '\033[92m'
@@ -14,12 +15,7 @@ class bcolors:
     UNDERLINE = '\033[4m'
 
 def main():
-    # ANSI escape codes for colors
-    blue = "^<ESC^>[94m "
-    white = "\033[97m"  # White color code
-    reset = "\033[0m"
-
-    banner_text = blue + """[94m
+    banner_text = """
 
 
 ██╗   ██╗ █████╗ ██████╗  █████╗       ██████╗ ██████╗  ██████╗ 
@@ -30,8 +26,8 @@ def main():
    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝     ╚═╝  ╚═╝ ╚═════╝ 
                                                                 
                                                                                                                                                    
-   [0m""" + reset
-    banner_pic = white + """
+   """
+    banner_pic = """
      
      
                   ,▄▄▄▄▄▄▄▄▄▄,
@@ -65,11 +61,9 @@ def main():
    → Shahad Alrabaie
    → Maha Alshammari
    → jihan Sultan  
-     """ + reset
-
-    # show program banner
-    print(banner_text + banner_pic)
-    print(bcolors.WARNING + banner_text + bcolors.ENDC)
+     """
+    print(bcolors.OKBLUE + banner_text + bcolors.ENDC)
+    print(bcolors.OHWHITE + banner_pic + bcolors.ENDC)
 
 
     # get the user flags
