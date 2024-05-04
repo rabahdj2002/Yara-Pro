@@ -2,10 +2,24 @@ import sys
 from main_parameter_handler import *
 import argparse
 
+class bcolors:
+    HEADER = '\033[95m'
+    OKBLUE = '\033[94m'
+    OKCYAN = '\033[96m'
+    OKGREEN = '\033[92m'
+    WARNING = '\033[93m'
+    FAIL = '\033[91m'
+    ENDC = '\033[0m'
+    BOLD = '\033[1m'
+    UNDERLINE = '\033[4m'
 
 def main():
+    # ANSI escape codes for colors
+    blue = "^<ESC^>[94m "
+    white = "\033[97m"  # White color code
+    reset = "\033[0m"
 
-    banner_text = """
+    banner_text = blue + """[94m
 
 
 ██╗   ██╗ █████╗ ██████╗  █████╗       ██████╗ ██████╗  ██████╗ 
@@ -15,7 +29,9 @@ def main():
    ██║   ██║  ██║██║  ██║██║  ██║      ██║     ██║  ██║╚██████╔╝
    ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝      ╚═╝     ╚═╝  ╚═╝ ╚═════╝ 
                                                                 
-                                                 
+                                                                                                                                                   
+   [0m""" + reset
+    banner_pic = white + """
      
      
                   ,▄▄▄▄▄▄▄▄▄▄,
@@ -48,11 +64,13 @@ def main():
    → Munirah Alsahli
    → Shahad Alrabaie
    → Maha Alshammari
-   → jihan Sultan                                                                                                    
-   """
+   → jihan Sultan  
+     """ + reset
 
     # show program banner
-    print(banner_text)
+    print(banner_text + banner_pic)
+    print(bcolors.WARNING + banner_text + bcolors.ENDC)
+
 
     # get the user flags
     parser = argparse.ArgumentParser(
